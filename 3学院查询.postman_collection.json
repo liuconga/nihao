@@ -1,0 +1,92 @@
+{
+	"info": {
+		"_postman_id": "5a35a659-1d42-4112-aa7d-499f5cba805c",
+		"name": "3学院查询",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "查询指定",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "20644c3f-4fd6-47e6-8255-47c0786069ff",
+						"exec": [
+							"// 获取名为url的环境变量--》输出到控制台",
+							"console.log(pm.environment.get(\"url\"));",
+							"console.log(pm.variables.get(\"dep_id\"));",
+							"console.log(pm.environment.get(\"dep_id\"));",
+							"",
+							"console.log(pm.variables.get(\"dep_id\"));",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "8e732b57-8c79-48d6-bebf-1942391e76a0",
+						"exec": [
+							"// pm.variables.set(\"dep_id\",\"canima\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://192.168.8.100:8000/api/departments/{{dep_id}}/",
+					"protocol": "http",
+					"host": [
+						"192",
+						"168",
+						"8",
+						"100"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"departments",
+						"{{dep_id}}",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "44694d8e-573b-4c5e-9b45-33295f3959bd",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "5023faad-a6cd-4de5-96c5-581b6c13d57c",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "823accf6-907c-450e-9f40-480b1694849f",
+			"key": "dep_id",
+			"value": "T01131",
+			"type": "string"
+		}
+	]
+}
