@@ -14,12 +14,10 @@
 						"id": "20644c3f-4fd6-47e6-8255-47c0786069ff",
 						"exec": [
 							"// 获取名为url的环境变量--》输出到控制台",
-							"console.log(pm.environment.get(\"url\"));",
-							"console.log(pm.variables.get(\"dep_id\"));",
-							"console.log(pm.environment.get(\"dep_id\"));",
-							"",
-							"console.log(pm.variables.get(\"dep_id\"));",
-							""
+							"pm.test(\"Your test name\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.dep_id).to.eql(\"T100\");",
+							"});"
 						],
 						"type": "text/javascript"
 					}
@@ -39,15 +37,10 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://192.168.8.100:8000/api/departments/{{dep_id}}/",
-					"protocol": "http",
+					"raw": "{{url}}/api/departments/{{dep_id}}/",
 					"host": [
-						"192",
-						"168",
-						"8",
-						"100"
+						"{{url}}"
 					],
-					"port": "8000",
 					"path": [
 						"api",
 						"departments",
@@ -83,7 +76,7 @@
 	],
 	"variable": [
 		{
-			"id": "823accf6-907c-450e-9f40-480b1694849f",
+			"id": "7b9a3d55-cdee-4f72-a6e9-1f51c28717fd",
 			"key": "dep_id",
 			"value": "T01131",
 			"type": "string"
